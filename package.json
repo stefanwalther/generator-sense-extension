@@ -19,5 +19,17 @@
   "bugs": {
     "url": "https://github.com/stefanwalther/generator-sense-extension/issues"
   },
-  "homepage": "https://github.com/stefanwalther/generator-sense-extension#readme"
+  "homepage": "https://github.com/stefanwalther/generator-sense-extension#readme",
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*",
+    "verb": "verbose/verb"
+  },
+  "files": [
+    "index.js"
+  ],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {}
 }

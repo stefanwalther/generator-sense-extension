@@ -13,6 +13,7 @@
     "url": "git+https://github.com/stefanwalther/generator-sense-extension.git"
   },
   "keywords": [
+    "yeoman-generator",
     "Qlik",
     "Sense"
   ],
@@ -22,14 +23,18 @@
   "homepage": "https://github.com/stefanwalther/generator-sense-extension#readme",
   "devDependencies": {
     "mocha": "*",
+    "mockery": "^1.4.0",
     "should": "*",
     "verb": "verbose/verb"
   },
   "files": [
-    "index.js"
+    "app"
   ],
   "engines": {
     "node": ">=0.10.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "yeoman-generator": "^0.20.1"
+  }
 }

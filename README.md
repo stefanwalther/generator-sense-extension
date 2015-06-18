@@ -4,6 +4,8 @@
 
 **Nothing to show, yet ... in the works ...**
 
+In the meanwhile use the [Yeoman Generator for Qlik Sense Visualization Extensions](https://github.com/stefanwalther/generator-qsExtension).
+
 ## Author
 
 **Stefan Walther**

@@ -1,0 +1,23 @@
+{
+  "name": "generator-sense-extension",
+  "version": "0.1.0",
+  "description": "Generate a boilerplate for your Qlik Sense Visualization Extensions (including validation, testing, deployment and packaging).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Stefan Walther",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefanwalther/generator-sense-extension.git"
+  },
+  "keywords": [
+    "Qlik",
+    "Sense"
+  ],
+  "bugs": {
+    "url": "https://github.com/stefanwalther/generator-sense-extension/issues"
+  },
+  "homepage": "https://github.com/stefanwalther/generator-sense-extension#readme"
+}

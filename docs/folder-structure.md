@@ -19,14 +19,18 @@ Sample settings:
 		|── js
 		|	extUtils.js
 		|── partials
-	| mycorp-my-extension.js
-	| mycorp-my-extension.qext
-	| properties.js
-	| initialProps.js
+	| mycorp-my-extension.js	// main script
+	| mycorp-my-extension.qext	// meta information
+	| preview.png				// Your extension preview image
+	| properties.js				// property panel definitions
+	| initialProps.js			// intial properties for your extension
 |── node_modules
+| .gitignore
+| .jshintrc
+| .verb.md
 | CHANGELOG.yml
 | LICENSE.md
-| README.md
+| (README.md)					// will be generated running gulp verb
 | package.json
 | qlik.yml
 ``` 

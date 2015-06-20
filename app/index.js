@@ -12,6 +12,7 @@ var chalk = require( 'chalk' );
 var _ = require( 'lodash' );
 var moment = require( 'moment' );
 var utils = require( './utils' );
+var yoPrompts = require('./prompts.js');
 
 module.exports = yeoman.generators.Base.extend( {
 
@@ -27,17 +28,22 @@ module.exports = yeoman.generators.Base.extend( {
 		var done = this.async();
 
 		this.log( chalk.magenta( 'You\'re using sense-extension generator. Have fun!' ) );
-		this.prompt( require( './prompts.js' ), function ( props ) {
+		this.prompt( yoPrompts, function ( props ) {
 
 			this.prompts = {};
 
 			this.prompts.extName = props.extName;
 			this.prompts.extDescription = props.extDescription;
 			this.prompts.extNamespace = props.extNamespace;
-			this.prompts.extensionNameSafe = props.extName.replace( /\s/g, "" );
-			this.prompts.extensionNamespace = _.isEmpty( props.extNamespace ) ? '' : props.extNamespace + '-';
-			this.prompts.extensionDescription = props.extDescription;
-			this.prompts.extLic = props.extLic || 'mit';
+			this.prompts.extNameSafe = props.extName.replace( /\s/g, "" );
+			this.prompts.extNamespace = _.isEmpty( props.extNamespace ) ? '' : props.extNamespace + '-';
+			this.prompts.extDescription = props.extDescription;
+
+			// Advanced, if not used, fallback to default values in prompts definition
+			this.prompts.extLic = props.extLic ||  _.findWhere(yoPrompts, {name: 'extLic'} ).default;
+			this.prompts.extType = props.extType ||  _.findWhere(yoPrompts, {name: 'extType'} ).default;
+			this.prompts.useLess = props.useLess ||  _.findWhere(yoPrompts, {name: 'useLess'} ).default;
+			this.prompts.useVerb = props.useVerb ||  _.findWhere(yoPrompts, {name: 'useVerb'} ).default;
 
 			var d = new Date();
 			this.prompts.publishingYear = d.getFullYear();

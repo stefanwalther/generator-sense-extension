@@ -22,10 +22,11 @@ Probably (and hopefully) self-explanatory, but here's an overview:
 
 **"Enter advanced mode"**  
 If you enter the advanced mode you can set the following settings  
-
-- **Use Less**
+- **Extension type?**
+	- defaults to `extension`
+- **Use Less instead of pure CSS?**
 	- defaults to `false`
-- **Use verb**
+- **Use verb to document your project**
 	- defaults to `false`
 - **Use watch**
 	- defaults to `false`

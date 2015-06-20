@@ -1,0 +1,16 @@
+{
+  "name": "<%= prompts.extensionNameSafe%>",
+  "version": "0.0.1",
+  "description": "Grunt tasks (dev + release) for the Qlik Sense extension <%= prompts.extensionName %>",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Qlik Sense Extension",
+    "qliksense-visualization-extension",
+    "Qlik Sense",
+    "QlikSense",
+    "Extension"
+  ],
+  "author": "<%= prompts.authorName %>"
+}

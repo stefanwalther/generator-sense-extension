@@ -1,10 +1,16 @@
 **Prerequisites:**
 
 - [node.js](https://nodejs.org/) installed
-- [Yeoman](http://yeoman.io/) installed globally (`npm install yeoman -g`)
 - (Ideally you have a GitHub account)
 
 **Installation of _Yeoman Generator for Qlik Sense Visualization Extensions_:**
+
+First install the [Yeoman](http://yeoman.io/) globally:
+```bash
+npm install yeoman -g
+```
+
+Second install generator-sense-extension:
 
 ```bash
 npm install generator-sense-extension -g
@@ -13,15 +19,11 @@ npm install generator-sense-extension -g
 
 **Run sense-extension generator**
 
-Create a directory and switch to it
+1. Think of a good name for your visualization extension (e.g. "astonishing-chart")
+2. Optionally, create a GitHub repository using that name (this will result into https://github.com/YOURNAME/astonishing-chart)
+3. Create a directory for your visualization extension (e.g. `mkdir c:\my-extensions\astonishing-chart`)
+4. Then switch to the created directory (`cd C:\my-extensions\astonishing-chart`)
+5. Run Yeoman generator _sense-extension_ (`yo sense-extension`)
+6. Follow the prompts
 
-```
-mkdir my-new-extension
-cd my-new extension
-```
-Then run the generator:
-```bash 
-yo sense-extension
-```
-
-Follow the question in the command line, then your are done!
+After answering some questions your are done, a basic structure for your visualization extension is created.

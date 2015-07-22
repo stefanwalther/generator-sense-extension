@@ -1,7 +1,7 @@
 {
   "name": "generator-sense-extension",
-  "version": "0.1.3",
-  "description": "Generate a boilerplate for your Qlik Sense Visualization Extensions (including validation, testing, documentation, deployment and packaging).",
+  "version": "0.1.4",
+  "description": "Generate a boilerplate for your Qlik Sense Visualization Extensions or Mashup (including validation, testing, documentation, deployment and packaging).",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

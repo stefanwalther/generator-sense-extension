@@ -2,13 +2,13 @@ module.exports = [
 	{
 		type: 'input',
 		name: 'extName',
-		message: 'Name of your visualization extension:',
+		message: 'Name of your project:',
 		default: this.appname // Defaults to current folder name
 	},
 	{
 		type: 'input',
 		name: 'extDescription',
-		message: 'Describe your visualization extension:'
+		message: 'Describe your project:'
 	},
 	{
 		type: 'input',
@@ -20,8 +20,11 @@ module.exports = [
 		name: 'extTemplate',
 		message: 'Choose a template:',
 		store: true,
-		choices: ['Classic'],
-		default: 'Classic'
+		choices: [
+			'Visualization Extension: Classic template',
+			'Visualization Extension: AngularJS based template'
+		],
+		default: 'Visualization Extension: Classic template'
 	},
 	{
 		type: "confirm",
@@ -76,6 +79,16 @@ module.exports = [
 		when: function ( props ) {
 			return props.isAdvancedMode;
 		},
+		type: "confirm",
+		name: "useSenseGo",
+		message: "Use sense-go as your deployment system?",
+		store: true,
+		default: false
+	},
+	{
+		when: function ( props ) {
+			return props.isAdvancedMode;
+		},
 		type: 'list',
 		name: 'extLic',
 		message: 'Choose a license',
@@ -106,10 +119,10 @@ module.exports = [
 			return props.isAdvancedMode;
 		},
 		type: "confirm",
-		name: "useSenseGo",
-		message: "Use sense-go as your deployment system?",
+		name: "installDependencies",
+		message: "Automatically install dependencies from package.json?",
 		store: true,
-		default: false
+		default: true
 	}
 ];
 

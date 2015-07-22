@@ -5,7 +5,7 @@
 
 **Installation of _Yeoman Generator for Qlik Sense Visualization Extensions_:**
 
-First install the [Yeoman](http://yeoman.io/) globally:
+First install [Yeoman](http://yeoman.io/) globally:
 ```bash
 npm install yeoman -g
 ```
@@ -26,4 +26,4 @@ npm install generator-sense-extension -g
 5. Run Yeoman generator _sense-extension_ (`yo sense-extension`)
 6. Follow the prompts
 
-After answering some questions your are done, a basic structure for your visualization extension is created.
+After answering some questions you're done, a basic structure for your project is created.

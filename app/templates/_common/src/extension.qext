@@ -5,5 +5,5 @@
 	"type" : "visualization",
 	"version": "@@pkg.version",
 	"preview" : "version-not-supported.png",
-	"author": "Stefan Walther"
+	"author": "@@pkg.author"
 }

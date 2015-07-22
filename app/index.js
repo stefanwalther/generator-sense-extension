@@ -7,7 +7,6 @@
 
 'use strict';
 
-
 var yeoman = require( 'yeoman-generator' );
 var chalk = require( 'chalk' );
 var _ = require( 'lodash' );
@@ -54,6 +53,7 @@ module.exports = yeoman.generators.Base.extend( {
 			this.prompts.creationDate = moment( d ).format( 'YYYY-MM-DD' );
 
 			this.prompts.licenceGenerated = utils.getLicense( this.prompts );
+			this.prompts.installDependencies = props.installDependencies || _.findWhere( yoPrompts, {name: 'installDependencies'} ).default
 
 			done();
 
@@ -85,6 +85,18 @@ module.exports = yeoman.generators.Base.extend( {
 	saveConfig: function () {
 		this.config.set( this.prompts );
 		this.config.save();
+	},
+	end: function () {
+
+		if ( !this.options['skip-install'] && this.prompts.installDependencies ) {
+
+			this.installDependencies( {
+				bower: false,
+				npm: true,
+				skipMessage: true
+			} );
+		}
+
 	},
 
 	// ****************************************************************************************

@@ -100,6 +100,16 @@ module.exports = [
 			"wtfpl"
 		],
 		default: 'mit'
+	},
+	{
+		when: function ( props ) {
+			return props.isAdvancedMode;
+		},
+		type: "confirm",
+		name: "useSenseGo",
+		message: "Use sense-go as your deployment system?",
+		store: true,
+		default: false
 	}
 ];
 

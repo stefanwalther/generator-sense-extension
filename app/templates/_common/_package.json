@@ -1,7 +1,7 @@
 {
   "name": "<%= prompts.extName%>",
-  "version": "0.0.1",
-  "description": "<%= prompts.extDescription",
+  "version": "0.1.0",
+  "description": "<%= prompts.extDescription %>",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,5 +12,9 @@
     "QlikSense",
     "Extension"
   ],
-  "author": "<%= prompts.authorName %>"
+  "author": "<%= prompts.authorName %>",
+  "devDependencies": {
+    <%= prompts.useSenseGo ? '"sense-go": "^0.3.3",' : '' %>
+    "verb": "verbose/verb"
+  }
 }

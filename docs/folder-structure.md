@@ -7,20 +7,21 @@ Sample settings:
 
 ```bash
 | mycorp-My-Extension 			//folder in your local extension directory
+|── build						// generated builds
 |── deploy
 	| gulpfile.js				// deployment based on sense-go
 	| deploy-config.yml			// deployment configuration file
 |── dist
 	|── dev						// distribution in dev mode
 	|── release					// distribution in release mode
-|── build						// generated builds
+|── node_modules
 |── src							// main source code
 	|── less					// only applicable if you choose option "useLess"
 	|── lib
 		|── css
 		|	style.css 			// in case of option "useLess", this will be generated
 		|── external			// external libraries to be stored here
-		|── images				
+		|── images				// guess what
 		|── js					// your JavaScript files
 		|	extUtils.js
 		|── partials			// partials (in case of using the AngularJS approach)
@@ -30,6 +31,7 @@ Sample settings:
 	| preview.png				// Your extension preview image
 	| properties.js				// property panel definitions
 	| initialProps.js			// intial properties for your extension
+| .editorconfig
 | .gitignore
 | .jshintrc
 | .verb.md

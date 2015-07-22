@@ -1,0 +1,9 @@
+{
+	"name" : "version-not-supported",
+	"description" : "@@pkg.description",
+	"icon" : "extension",
+	"type" : "visualization",
+	"version": "@@pkg.version",
+	"preview" : "version-not-supported.png",
+	"author": "Stefan Walther"
+}

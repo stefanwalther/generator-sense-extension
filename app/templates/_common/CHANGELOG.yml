@@ -1,0 +1,8 @@
+v0.1.0:
+  date: "<%= prompts.creationDate %>"
+  new:
+    - "Initial version"
+  enhancements:
+    - ""
+  fixes:
+    - ""

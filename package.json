@@ -1,6 +1,6 @@
 {
   "name": "generator-sense-extension",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Generate a boilerplate for your Qlik Sense Visualization Extensions (including validation, testing, documentation, deployment and packaging).",
   "main": "index.js",
   "scripts": {
@@ -21,12 +21,6 @@
     "url": "https://github.com/stefanwalther/generator-sense-extension/issues"
   },
   "homepage": "https://github.com/stefanwalther/generator-sense-extension#readme",
-  "devDependencies": {
-    "mocha": "*",
-    "mockery": "^1.4.0",
-    "should": "*",
-    "verb": "verbose/verb"
-  },
   "files": [
     "app"
   ],
@@ -34,9 +28,19 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
+    "async": "^1.4.0",
     "chalk": "^1.0.0",
     "lodash": "^3.9.3",
+    "mkdirp": "^0.5.1",
     "moment": "^2.10.3",
     "yeoman-generator": "^0.20.1"
+  },
+  "devDependencies": {
+    "gulp": "file:C:\\Users\\swr\\AppData\\Local\\Temp\\npm-6816-237b47c2\\git-cache-a20794b8c7a1\\aaed69d1fd73750227e803035b2a75d0f49e7de0",
+    "mocha": "*",
+    "mockery": "^1.4.0",
+    "sense-go": "^0.3.3",
+    "should": "*",
+    "verb": "verbose/verb"
   }
 }

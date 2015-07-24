@@ -1,5 +1,5 @@
 {
-  "name": "<%= prompts.extName%>",
+  "name": "<%= prompts.extNameSafe.toLocaleLowerCase()%>",
   "version": "0.1.0",
   "description": "<%= prompts.extDescription %>",
   "scripts": {
@@ -14,7 +14,8 @@
   ],
   "author": "<%= prompts.authorName %>",
   "devDependencies": {
-    <%= prompts.useSenseGo ? '"sense-go": "^0.3.3",' : '' %>
+    <% if( prompts.useSenseGo ) { %> "sense-go": "^0.3.3", <% } %>
+    <% if( prompts.useSenseGo ) { %> "gulp": "git://github.com/gulpjs/gulp#4.0", <% } %>
     "verb": "verbose/verb"
   }
 }

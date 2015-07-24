@@ -39,7 +39,7 @@ module.exports = yeoman.generators.Base.extend( {
 			this.prompts.extNamespace = props.extNamespace;
 			this.prompts.extNameSafe = props.extName.replace( /\s/g, "-" );
 			this.prompts.extNamespace = _.isEmpty( props.extNamespace ) ? '' : props.extNamespace + '-';
-			this.prompts.extUniqueName = this.prompts.extNamespace + this.prompts.extNameSafe;
+			this.prompts.extUniqueName = this.prompts.extNamespace.toLowerCase() + this.prompts.extNameSafe.toLocaleLowerCase();
 			this.prompts.extDescription = props.extDescription;
 
 			// Advanced, if not used, fallback to default values in prompts definition
@@ -47,6 +47,7 @@ module.exports = yeoman.generators.Base.extend( {
 			this.prompts.extType = props.extType || _.findWhere( yoPrompts, {name: 'extType'} ).default;
 			this.prompts.useLess = props.useLess || _.findWhere( yoPrompts, {name: 'useLess'} ).default;
 			this.prompts.useVerb = props.useVerb || _.findWhere( yoPrompts, {name: 'useVerb'} ).default;
+			this.prompts.useSenseGo = props.useSenseGo || _.findWhere( yoPrompts, {name: 'useSenseGo'} ).default;
 
 			var d = new Date();
 			this.prompts.publishingYear = d.getFullYear();

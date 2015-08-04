@@ -1,4 +1,4 @@
-The generator guides you during the setup of your _visualization extension_ by just asking you questions.
+The generator guides you during the setup of your project by just asking questions.
 Probably (and hopefully) self-explanatory, but here's an overview:
 
 **"Name of your project"**

@@ -5,12 +5,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": {
+    "name": "<%=prompts.extAuthor%>",
+    "url": "<%=prompts.extAuthorWebsite%>"
+  },
   "keywords": [
-    "Qlik Sense Extension",
+    "qlik",
+    "qliksense",
+    "qlik-sense",
+    "qlik sense visualization extension",
+    "qlik-sense-visualization-extension",
     "qliksense-visualization-extension",
-    "Qlik Sense",
-    "QlikSense",
-    "Extension"
+    "visualization"
   ],
   "author": "<%= prompts.authorName %>",
   "devDependencies": {

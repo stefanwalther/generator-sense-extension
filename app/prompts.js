@@ -1,4 +1,6 @@
-module.exports = [
+'use strict';
+
+var prompts = [
 	{
 		type: 'input',
 		name: 'extName',
@@ -16,15 +18,33 @@ module.exports = [
 		message: 'Namespace (leave blank if unsure):'
 	},
 	{
+		type: 'input',
+		name: 'extAuthor',
+		store: true,
+		message: 'Author of this solution:'
+	},
+	{
+		type: 'input',
+		name: 'extAuthorWebsite',
+		store: true,
+		message: 'Author\'s website:'
+	},
+	{
 		type: 'list',
 		name: 'extTemplate',
 		message: 'Choose a template:',
-		store: true,
+		store: false,
 		choices: [
-			'Visualization Extension: Classic template',
-			'Visualization Extension: AngularJS based template'
+			{
+				"name": "Visualization Extension: Classic template",
+				"value": "paint_basic"
+			},
+			{
+				"name": "Visualization Extension: AngularJS based template",
+				"value": "angular_basic"
+			}
 		],
-		default: 'Visualization Extension: Classic template'
+		default: 'basic_paint'
 	},
 	{
 		type: "confirm",
@@ -125,5 +145,8 @@ module.exports = [
 		default: true
 	}
 ];
+
+
+module.exports = prompts;
 
 

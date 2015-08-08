@@ -37,10 +37,13 @@ module.exports = yeoman.generators.Base.extend( {
 			this.prompts.extName = props.extName;
 			this.prompts.extDescription = props.extDescription;
 			this.prompts.extNamespace = props.extNamespace;
+			this.prompts.extAuthor = props.extAuthor;
+			this.prompts.extAuthorWebsite = props.extAuthorWebsite;
 			this.prompts.extNameSafe = props.extName.replace( /\s/g, "-" );
 			this.prompts.extNamespace = _.isEmpty( props.extNamespace ) ? '' : props.extNamespace + '-';
 			this.prompts.extUniqueName = this.prompts.extNamespace.toLowerCase() + this.prompts.extNameSafe.toLocaleLowerCase();
 			this.prompts.extDescription = props.extDescription;
+			this.prompts.extTemplate = props.extTemplate;
 
 			// Advanced, if not used, fallback to default values in prompts definition
 			this.prompts.extLic = props.extLic || _.findWhere( yoPrompts, {name: 'extLic'} ).default;
@@ -141,6 +144,8 @@ module.exports = yeoman.generators.Base.extend( {
 
 	_src: function () {
 		this.template( '_common/src/extension.qext', 'src/' + this.prompts.extUniqueName + '.qext' );
+
+
 	}
 
 } );

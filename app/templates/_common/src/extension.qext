@@ -5,7 +5,7 @@
 	"type" : "visualization",
 	"version": "@@pkg.version",
 	"preview" : "version-not-supported.png",
-	"author": "@@pkg.author",
+	"author": "@@pkg.author.name",
 	"homepage": "",
   "keywords": "qlik-sense, visualization-extension, extension, visualization",
   "license": "<%= prompts.extLic%>",

@@ -119,8 +119,7 @@ module.exports = yeoman.generators.Base.extend( {
 	_root: function () {
 
 		this.copy( '_common/dotFiles/.jshintrc', '.jshintrc' );
-		this.copy( '_common/dotFiles/.editorconfig', '.editorconfig' );
-		this.copy( '_common/dotFiles/.gitattributes', '.gitattributes' );
+		//this.copy( '_common/dotFiles/.gitattributes', '.gitattributes' );
 		this.copy( '_common/dotFiles/.gitignore', '.gitignore' );
 		this.template( '_common/_package.json', 'package.json' );
 
@@ -144,6 +143,8 @@ module.exports = yeoman.generators.Base.extend( {
 
 	_src: function () {
 		this.template( '_common/src/extension.qext', 'src/' + this.prompts.extUniqueName + '.qext' );
+		this.copy( '_common/dotFiles/.editorconfig', 'src/.editorconfig' );
+
 
 
 	}

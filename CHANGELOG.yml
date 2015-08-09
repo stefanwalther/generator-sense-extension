@@ -1,3 +1,7 @@
+v0.2.0:
+  date: "2015-08-09"
+  new:
+  	- "Support for css and less"
 v0.1.0:
   date: "2015-06-20"
   new:

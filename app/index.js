@@ -119,7 +119,6 @@ module.exports = yeoman.generators.Base.extend( {
 	_root: function () {
 
 		this.copy( '_common/dotFiles/.jshintrc', '.jshintrc' );
-		//this.copy( '_common/dotFiles/.gitattributes', '.gitattributes' );
 		this.copy( '_common/dotFiles/.gitignore', '.gitignore' );
 		this.template( '_common/_package.json', 'package.json' );
 
@@ -141,12 +140,30 @@ module.exports = yeoman.generators.Base.extend( {
 
 	},
 
+	/**
+	 * Source directory and all its dependencies
+	 * @private
+	 */
 	_src: function () {
 		this.template( '_common/src/extension.qext', 'src/' + this.prompts.extUniqueName + '.qext' );
 		this.copy( '_common/dotFiles/.editorconfig', 'src/.editorconfig' );
 
+		// CSS
+		if (this.prompts.useLess) {
+			this.template( '_common/src/lib/css/main-less.css', 'src/lib/css/main.css' );
+		} else {
+			this.template( '_common/src/lib/css/main.css', 'src/lib/css/main.css' );
+		}
 
+		this._src_less();
+	},
 
+	_src_less: function (  ) {
+		if (this.prompts.useLess) {
+			this.template('_common/src/lib/less/main.less', 'src/lib/less/main.less');
+			this.template('_common/src/lib/less/variables.less', 'src/lib/less/variables.less');
+
+		}
 	}
 
 } );

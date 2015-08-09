@@ -27,8 +27,7 @@ describe( 'generator:app', function () {
 
 		it( 'creates root files', function () {
 			var expected = [
-				'.editorconfig',
-				'.gitattributes',
+				'src/.editorconfig',
 				'.jshintrc',
 				'.yo-rc.json',
 				'CHANGELOG.yml',

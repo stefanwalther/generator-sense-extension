@@ -192,7 +192,7 @@ Sample settings:
     |── less                    // only applicable if you choose option "useLess"
     |── lib
         |── css
-        |   style.css           // in case of option "useLess", this will be generated
+        |   _style.css           // in case of option "useLess", this will be generated
         |── external            // external libraries to be stored here
         |── images              // guess what
         |── js                  // your JavaScript files

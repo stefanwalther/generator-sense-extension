@@ -39,6 +39,14 @@ describe( 'generator:app', function () {
 			assert.file( expected );
 		} );
 
+		it( 'creates basic files should be always there', function (  ) {
+			var expected = [
+				'src/lib/js/extUtils.js'
+			];
+
+			assert.file( expected );
+		} );
+
 	} );
 
 } );

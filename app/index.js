@@ -155,6 +155,9 @@ module.exports = yeoman.generators.Base.extend( {
 			this.template( '_common/src/lib/css/main.css', 'src/lib/css/main.css' );
 		}
 
+		// JS
+		this.copy('_common/src/lib/js/extensionUtils.js', 'src/lib/js/extensionUtils.js');
+
 		this._src_less();
 	},
 

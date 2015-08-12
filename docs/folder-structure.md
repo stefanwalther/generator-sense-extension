@@ -23,7 +23,7 @@ Sample settings:
 		|── external			// external libraries to be stored here
 		|── images				// guess what
 		|── js					// your JavaScript files
-		|	extUtils.js
+		|	extUtils.js			// collection of sugar functions
 		|── partials			// partials (in case of using the AngularJS approach)
 
 	| mycorp-my-extension.js	// main script

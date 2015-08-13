@@ -156,7 +156,7 @@ module.exports = yeoman.generators.Base.extend( {
 		}
 
 		// JS
-		this.copy('_common/src/lib/js/extensionUtils.js', 'src/lib/js/extensionUtils.js');
+		this.copy('_common/src/lib/js/extUtils.js', 'src/lib/js/extUtils.js');
 
 		this._src_less();
 	},

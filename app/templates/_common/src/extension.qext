@@ -10,5 +10,5 @@
   "keywords": "qlik-sense, visualization-extension, extension, visualization",
   "license": "<%= prompts.extLic%>",
   "repository": "",
-  "dependencies": {}
+  "dependencies" : { "qlik-sense" : ">1.0.x" }
 }

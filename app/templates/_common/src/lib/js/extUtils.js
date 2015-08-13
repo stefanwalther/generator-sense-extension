@@ -7,10 +7,10 @@ define( [
 ], function ( qlik, $, _, $q ) {
 	'use strict';
 
-	function xIndexOf ( Val, Str, x ) {
-		if ( x <= (Str.split( Val ).length - 1) ) {
-			Ot = Str.indexOf( Val );
-			if ( x > 1 ) { for ( var i = 1; i < x; i++ ) { var Ot = Str.indexOf( Val, Ot + 1 ) } }
+	function xIndexOf ( givenString, searchFor, x ) {
+		if ( x <= (givenString.split( searchFor ).length - 1) ) {
+			var Ot = givenString.indexOf( searchFor );
+			if ( x > 1 ) { for ( var i = 1; i < x; i++ ) { Ot = givenString.indexOf( searchFor, Ot + 1 ) } }
 			return Ot;
 		} else {
 			//throw Error( Val + " Occurs less than " + x + " times" );
@@ -64,17 +64,17 @@ define( [
 
 			global.getProductVersion( function ( reply ) {
 				var v = reply.qReturn;
-				var lastDot = xIndexOf( '.', v, 2);
-				var rest = v.substr(lastDot+1);
+				var lastDot = xIndexOf( v, '.', 2 );
+				var rest = v.substr( lastDot + 1 );
 				var chars = rest.split();
 				var numDigitsAfterRest = 0;
-				for (var i = 0; i < chars.length; i++) {
-					if ( !_.isNumber(chars[i])) {
-						var numDigitsAfterRest = i+1;
+				for ( var i = 0; i < chars.length; i++ ) {
+					if ( !_.isNumber( chars[i] ) ) {
+						var numDigitsAfterRest = i + 1;
 						break;
 					}
 				}
-				defer.resolve( v.substr(0, lastDot +1 + numDigitsAfterRest));
+				defer.resolve( v.substr( 0, lastDot + 1 + numDigitsAfterRest ) );
 			} );
 
 			return defer.promise;

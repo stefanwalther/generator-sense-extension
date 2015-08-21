@@ -120,23 +120,23 @@ module.exports = yeoman.generators.Base.extend( {
 
 		this.copy( '_common/dotFiles/.jshintrc', '.jshintrc' );
 		this.copy( '_common/dotFiles/.gitignore', '.gitignore' );
-		this.template( '_common/_package.json', 'package.json' );
+		this.template( '_common/_package.json', 'package.json'  , {});
 
 		// Verb
 		if ( this.prompts.useVerb ) {
-			this.template( '_common/dotFiles/.verb.md', '.verb.md' );
-			this.template( '_common/README-verb.md', 'README.md' );
+			this.template( '_common/dotFiles/.verb.md', '.verb.md'  , {});
+			this.template( '_common/README-verb.md', 'README.md'  , {});
 		} else {
-			this.template( '_common/README.md', 'README.md' );
+			this.template( '_common/README.md', 'README.md'  , {});
 		}
 
 		// Sense-Go
 		if ( this.prompts.useSenseGo ) {
-			this.template( '_common/gulpfile.js', 'gulpfile.js' );
+			this.template( '_common/gulpfile.js', 'gulpfile.js'  , {});
 		}
 
-		this.template( '_common/CHANGELOG.yml', 'CHANGELOG.yml' );
-		this.template( '_common/LICENSE.md', 'LICENSE.md' );
+		this.template( '_common/CHANGELOG.yml', 'CHANGELOG.yml' , {});
+		this.template( '_common/LICENSE.md', 'LICENSE.md' , {});
 
 	},
 
@@ -145,14 +145,14 @@ module.exports = yeoman.generators.Base.extend( {
 	 * @private
 	 */
 	_src: function () {
-		this.template( '_common/src/extension.qext', 'src/' + this.prompts.extUniqueName + '.qext' );
+		this.template( '_common/src/extension.qext', 'src/' + this.prompts.extUniqueName + '.qext'  , {});
 		this.copy( '_common/dotFiles/.editorconfig', 'src/.editorconfig' );
 
 		// CSS
 		if (this.prompts.useLess) {
-			this.template( '_common/src/lib/css/main-less.css', 'src/lib/css/main.css' );
+			this.template( '_common/src/lib/css/main-less.css', 'src/lib/css/main.css'  , {});
 		} else {
-			this.template( '_common/src/lib/css/main.css', 'src/lib/css/main.css' );
+			this.template( '_common/src/lib/css/main.css', 'src/lib/css/main.css'  , {});
 		}
 
 		// JS
@@ -163,8 +163,8 @@ module.exports = yeoman.generators.Base.extend( {
 
 	_src_less: function (  ) {
 		if (this.prompts.useLess) {
-			this.template('_common/src/lib/less/main.less', 'src/lib/less/main.less');
-			this.template('_common/src/lib/less/variables.less', 'src/lib/less/variables.less');
+			this.template('_common/src/lib/less/main.less', 'src/lib/less/main.less' , {});
+			this.template('_common/src/lib/less/variables.less', 'src/lib/less/variables.less' , {});
 
 		}
 	}

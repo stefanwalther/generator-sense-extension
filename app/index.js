@@ -152,7 +152,7 @@ module.exports = yeoman.generators.Base.extend( {
 		if (this.prompts.useLess) {
 			this.template( '_common/src/lib/css/main-less.css', 'src/lib/css/main.css'  , {});
 		} else {
-			this.template( '_common/src/lib/css/main.css', 'src/lib/css/main.css'  , {});
+			this.template( '_common/src/lib/css/.gitkeep', 'src/lib/css/.gitkeep'  , {});
 		}
 
 		// JS

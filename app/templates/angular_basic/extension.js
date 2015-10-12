@@ -1,13 +1,15 @@
 /*global define*/
 define( [
+		'./properties',
+		'./initialproperties',
 		'text!./template.ng.html'
 	],
-	function ( ngTemplate ) {
+	function ( props, initProps, ngTemplate ) {
 		'use strict';
 
 		return {
-			definition: {},
-			initialProperties: {},
+			definition: props,
+			initialProperties: initProps,
 			snapshot: {canTakeSnapshot: true},
 			template: ngTemplate,
 			controller: ['$scope', function ( $scope ) {

@@ -11,12 +11,12 @@
   },
   "keywords": [
     "qlik",
-    "qliksense",
     "qlik-sense",
-    "qlik sense visualization extension",
+    "visualization-extension",
     "qlik-sense-visualization-extension",
     "qliksense-visualization-extension",
-    "visualization"
+    "visualization",
+    "extension"
   ],
   "author": "<%= prompts.authorName %>",
   "devDependencies": {

@@ -13,6 +13,8 @@ var _ = require( 'lodash' );
 var moment = require( 'moment' );
 var utils = require( './utils' );
 var yoPrompts = require( './prompts.js' );
+var fs = require( 'fs' );
+var path = require( 'path' );
 
 module.exports = yeoman.generators.Base.extend( {
 
@@ -67,8 +69,8 @@ module.exports = yeoman.generators.Base.extend( {
 
 	writing: function () {
 
-		this._dirs();
-		this._root();
+		this._projectDirs();
+		this._projectRoot();
 		this._src();
 
 	},
@@ -106,7 +108,7 @@ module.exports = yeoman.generators.Base.extend( {
 	// ****************************************************************************************
 	// Content generation
 	// ****************************************************************************************
-	_dirs: function () {
+	_projectDirs: function () {
 		// Build Dir
 		this.mkdir( 'build' );
 		this.mkdir( 'build/dev' );
@@ -116,27 +118,29 @@ module.exports = yeoman.generators.Base.extend( {
 		this.mkdir( 'src/lib/css' );
 		this.mkdir( 'src/lib/external' );
 	},
-	_root: function () {
+	_projectRoot: function () {
 
 		this.copy( '_common/dotFiles/.jshintrc', '.jshintrc' );
 		this.copy( '_common/dotFiles/.gitignore', '.gitignore' );
-		this.template( '_common/_package.json', 'package.json');
+		this.template( '_common/_package.json', 'package.json' );
+		this.copy( '_common/dotFiles/.editorconfig', '.editorconfig' );
 
 		// Verb
 		if ( this.prompts.useVerb ) {
-			this.template( '_common/dotFiles/.verb.md', '.verb.md');
-			this.template( '_common/README-verb.md', 'README.md');
+			this.template( '_common/dotFiles/.verb.md', '.verb.md' );
+			this.template( '_common/README-verb.md', 'README.md' );
 		} else {
-			this.template( '_common/README.md', 'README.md');
+			this.template( '_common/README.md', 'README.md' );
 		}
 
 		// Sense-Go
 		if ( this.prompts.useSenseGo ) {
-			this.template( '_common/gulpfile.js', 'gulpfile.js');
+			this.template( '_common/gulpfile.js', 'gulpfile.js' );
+			this.tempalte( '_common/sense-go.yml', 'sense-go.yml' );
 		}
 
-		this.template( '_common/CHANGELOG.yml', 'CHANGELOG.yml');
-		this.template( '_common/LICENSE.md', 'LICENSE.md');
+		this.template( '_common/CHANGELOG.yml', 'CHANGELOG.yml' );
+		this.template( '_common/LICENSE.md', 'LICENSE.md' );
 
 	},
 
@@ -145,27 +149,41 @@ module.exports = yeoman.generators.Base.extend( {
 	 * @private
 	 */
 	_src: function () {
-		this.template( '_common/src/extension.qext', 'src/' + this.prompts.extUniqueName + '.qext');
-		this.copy( '_common/dotFiles/.editorconfig', 'src/.editorconfig' );
+		this.template( '_common/src/extension.qext', 'src/' + this.prompts.extUniqueName + '.qext' );
 
-		// CSS
-		if (this.prompts.useLess) {
-			this.template( '_common/src/lib/css/main-less.css', 'src/lib/css/main.css');
-		} else {
-			this.template( '_common/src/lib/css/.gitkeep', 'src/lib/css/.gitkeep');
+		if ( this.prompts.extTemplate ) {
+			switch ( this.prompts.extTemplate ) {
+				case 'angular_basic':
+					this.template( 'angular_basic/extension.js', 'src/' + this.prompts.extUniqueName + '.js' );
+					this.template( 'angular_basic/initialproperties.js', 'src/initialproperties.js' );
+					this.template( 'angular_basic/properties.js', 'src/properties.js' );
+					this.template( 'angular_basic/template.ng.html', 'src/template.ng.html' );
+					break;
+				case 'basic_paint':
+					this.template( 'basic_paint', 'src/' + this.prompts.extUniqueName + '.js' );
+					this.template( 'basic_paint/initialproperties.js', 'src/initialproperties.js' );
+					this.template( 'basic_paint/properties.js', 'src/properties.js' );
+			}
 		}
 
-		// JS
-		this.copy('_common/src/lib/js/extUtils.js', 'src/lib/js/extUtils.js');
+		// CSS
+		if ( this.prompts.useLess ) {
+			this.template( '_common/src/lib/css/main-less.css', 'src/lib/css/main.css' );
+			this._src_less();
+		} else {
+			this.template( '_common/src/lib/css/.gitkeep', 'src/lib/css/.gitkeep' );
+		}
 
-		this._src_less();
+		// JS - Utils
+		//Todo: To be replaced with a reference to sense-extension-utils (in case of using sense-go)
+		this.copy( '_common/src/lib/js/extUtils.js', 'src/lib/js/extUtils.js' );
+
 	},
 
-	_src_less: function (  ) {
-		if (this.prompts.useLess) {
-			this.template('_common/src/lib/less/main.less', 'src/lib/less/main.less');
-			this.template('_common/src/lib/less/variables.less', 'src/lib/less/variables.less');
-
+	_src_less: function () {
+		if ( this.prompts.useLess ) {
+			this.template( '_common/src/lib/less/main.less', 'src/lib/less/main.less' );
+			this.template( '_common/src/lib/less/variables.less', 'src/lib/less/variables.less' );
 		}
 	}
 

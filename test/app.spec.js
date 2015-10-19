@@ -27,7 +27,7 @@ describe( 'generator:app', function () {
 
 		it( 'creates root files', function () {
 			var expected = [
-				'src/.editorconfig',
+				'.editorconfig',
 				'.jshintrc',
 				'.yo-rc.json',
 				'CHANGELOG.yml',
@@ -39,7 +39,7 @@ describe( 'generator:app', function () {
 			assert.file( expected );
 		} );
 
-		it( 'creates basic files should be always there', function (  ) {
+		it( 'creates basic files should be always there', function () {
 			var expected = [
 				'src/lib/js/extUtils.js'
 			];

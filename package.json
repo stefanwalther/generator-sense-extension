@@ -33,7 +33,7 @@
     "lodash": "^3.9.3",
     "mkdirp": "^0.5.1",
     "moment": "^2.10.3",
-    "yeoman-generator": "^0.20.1"
+    "yeoman-generator": "^0.20.3"
   },
   "devDependencies": {
     "gulp": "file:C:\\Users\\swr\\AppData\\Local\\Temp\\npm-6816-237b47c2\\git-cache-a20794b8c7a1\\aaed69d1fd73750227e803035b2a75d0f49e7de0",

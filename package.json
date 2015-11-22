@@ -40,7 +40,6 @@
     "mocha": "*",
     "mockery": "^1.4.0",
     "sense-go": "^0.3.3",
-    "should": "*",
-    "verb": "verbose/verb"
+    "should": "*"
   }
 }

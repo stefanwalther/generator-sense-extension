@@ -3,6 +3,8 @@
 var TestSetup = function () {
 
 	this.expected = {
+
+		// Typical root files, regardless the type and other configs.
 		rootFiles: [
 			'.editorconfig',
 			'.gitattributes',
@@ -14,6 +16,8 @@ var TestSetup = function () {
 			'package.json',
 			'README.md'
 		],
+
+		// Typical source file, regardless the type and other configs.
 		srcFiles: [
 			'src',
 			'src/my-extension.qext',
@@ -22,6 +26,8 @@ var TestSetup = function () {
 			'src/properties.js',
 			'src/initialproperties.js'
 		],
+
+		// Typical project dirs, regardless the type and other configs.
 		projectDirs: [
 			'build',
 			'build/dev',
@@ -31,6 +37,9 @@ var TestSetup = function () {
 			'src/lib/css',
 			'src/lib/external'
 
+		],
+		verbFiles: [
+				'.verb.md'
 		]
 	}
 };

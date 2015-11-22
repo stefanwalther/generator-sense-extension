@@ -38,6 +38,13 @@ describe( 'generator:app', function () {
 			assert.file( testSetup.expected.projectDirs );
 		} );
 
+		//Todo: Not clear how to test non-existance of files.
+		it.skip('should not contain .verb specific files', function (  ) {
+			assert.file( ['.verb.md'] ).to.be.false;
+		})
+
 	} );
+
+
 
 } );

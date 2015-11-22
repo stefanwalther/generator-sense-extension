@@ -14,7 +14,6 @@ module.exports = yeoman.generators.Base.extend( {
 	constructor: function () {
 		yeoman.generators.Base.apply( this, arguments );
 		this.pkg = require( "../package.json" );
-
 	},
 
 	init: {},
@@ -64,6 +63,7 @@ module.exports = yeoman.generators.Base.extend( {
 		this._projectDirs();
 		this._projectRoot();
 		this._src();
+		this._opts();
 
 	},
 
@@ -118,13 +118,7 @@ module.exports = yeoman.generators.Base.extend( {
 		this.copy( '_common/dotFiles/.gitignore', '.gitignore' );
 		this.template( '_common/_package.json', 'package.json' );
 
-		// Verb
-		if ( this.prompts.useVerb ) {
-			this.template( '_common/dotFiles/.verb.md', '.verb.md' );
-			this.template( '_common/README-verb.md', 'README.md' );
-		} else {
-			this.template( '_common/README.md', 'README.md' );
-		}
+		this.template( '_common/README.md', 'README.md' );
 
 		// Sense-Go
 		if ( this.prompts.useSenseGo ) {
@@ -178,6 +172,16 @@ module.exports = yeoman.generators.Base.extend( {
 			this.template( '_common/src/lib/less/main.less', 'src/lib/less/main.less' );
 			this.template( '_common/src/lib/less/variables.less', 'src/lib/less/variables.less' );
 		}
-	}
+	},
 
+	// Several options, overwriting other configs.
+	_opts: function (  ) {
+
+		// Verb
+		if ( this.prompts.useVerb ) {
+			this.template( '_common/dotFiles/.verb.md', '.verb.md' );
+			this.template( '_common/README-verb.md', 'README.md' );
+		}
+
+	}
 } );

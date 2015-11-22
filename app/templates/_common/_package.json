@@ -20,8 +20,5 @@
   ],
   "author": "<%= prompts.authorName %>",
   "devDependencies": {
-    <% if( prompts.useSenseGo ) { %> "sense-go": "^0.3.3", <% } %>
-    <% if( prompts.useSenseGo ) { %> "gulp": "git://github.com/gulpjs/gulp#4.0", <% } %>
-    "verb": "verbose/verb"
   }
 }

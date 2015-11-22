@@ -1,10 +1,3 @@
-/*!
- * generator-sense-extension <https://github.com/stefanwalther/generator-sense-extension>
- *
- * Copyright (c) 2015, Stefan Walther.
- * Licensed under the MIT License.
- */
-
 'use strict';
 
 var yeoman = require( 'yeoman-generator' );
@@ -64,7 +57,6 @@ module.exports = yeoman.generators.Base.extend( {
 			done();
 
 		}.bind( this ) );
-
 	},
 
 	writing: function () {
@@ -120,10 +112,11 @@ module.exports = yeoman.generators.Base.extend( {
 	},
 	_projectRoot: function () {
 
+		this.copy( '_common/dotFiles/.editorconfig', '.editorconfig' );
+		this.copy( '_common/dotFiles/.gitattributes', '.gitattributes' );
 		this.copy( '_common/dotFiles/.jshintrc', '.jshintrc' );
 		this.copy( '_common/dotFiles/.gitignore', '.gitignore' );
 		this.template( '_common/_package.json', 'package.json' );
-		this.copy( '_common/dotFiles/.editorconfig', '.editorconfig' );
 
 		// Verb
 		if ( this.prompts.useVerb ) {
@@ -160,7 +153,7 @@ module.exports = yeoman.generators.Base.extend( {
 					this.template( 'angular_basic/template.ng.html', 'src/template.ng.html' );
 					break;
 				case 'basic_paint':
-					this.template( 'basic_paint', 'src/' + this.prompts.extUniqueName + '.js' );
+					this.template( 'basic_paint/extension.js', 'src/' + this.prompts.extUniqueName + '.js' );
 					this.template( 'basic_paint/initialproperties.js', 'src/initialproperties.js' );
 					this.template( 'basic_paint/properties.js', 'src/properties.js' );
 			}

@@ -4,6 +4,7 @@ var path = require( 'path' );
 var assert = require( 'yeoman-generator' ).assert;
 var helpers = require( 'yeoman-generator' ).test;
 var mockery = require( 'mockery' );
+var testSetup = require('./testSetup');
 
 describe( 'generator:app', function () {
 
@@ -26,25 +27,15 @@ describe( 'generator:app', function () {
 		} );
 
 		it( 'creates root files', function () {
-			var expected = [
-				'.editorconfig',
-				'.jshintrc',
-				'.yo-rc.json',
-				'CHANGELOG.yml',
-				'README.md',
-				'LICENSE.md',
-				'package.json'
-			];
-
-			assert.file( expected );
+			assert.file( testSetup.expected.rootFiles );
 		} );
 
 		it( 'creates basic files should be always there', function () {
-			var expected = [
-				'src/lib/js/extUtils.js'
-			];
+			assert.file( testSetup.expected.srcFiles );
+		} );
 
-			assert.file( expected );
+		it( 'creates all required project dirs', function (  ) {
+			assert.file( testSetup.expected.projectDirs );
 		} );
 
 	} );

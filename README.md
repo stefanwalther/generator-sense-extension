@@ -212,7 +212,7 @@ Sample settings:
 | LICENSE.md
 | (README.md)                   // will be generated running gulp verb
 | package.json
-| qlik.yml
+| qlik.yml						// Just
 ```
 
 ## Contributing

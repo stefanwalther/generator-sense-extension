@@ -34,10 +34,10 @@ Sample settings:
 | .editorconfig
 | .gitignore
 | .jshintrc
-| .verb.md
-| CHANGELOG.yml
-| LICENSE.md
+| .verb.md						// Only used if verb is used for documentation purposes.
+| CHANGELOG.yml					// Changelog in YML format
+| LICENSE.md					// License file
 | (README.md)					// will be generated running gulp verb
-| package.json
-| qlik.yml
+| package.json					// npm package.json file
+| qlik.yml						// Just for experimental purposes
 ``` 

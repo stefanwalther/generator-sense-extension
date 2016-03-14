@@ -1,13 +1,12 @@
 **Prerequisites:**
 
 - [node.js](https://nodejs.org/) installed
-- (Ideally you have a GitHub account)
 
 **Installation of _Yeoman Generator for Qlik Sense Visualization Extensions_:**
 
 First install [Yeoman](http://yeoman.io/) globally:
 ```bash
-npm install yeoman -g
+npm install yo -g
 ```
 
 Second install generator-sense-extension:

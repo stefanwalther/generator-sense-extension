@@ -36,7 +36,6 @@
     "yeoman-generator": "^0.20.3"
   },
   "devDependencies": {
-    "gulp": "file:C:\\Users\\swr\\AppData\\Local\\Temp\\npm-6816-237b47c2\\git-cache-a20794b8c7a1\\aaed69d1fd73750227e803035b2a75d0f49e7de0",
     "mocha": "*",
     "mockery": "^1.4.0",
     "sense-go": "^0.3.3",

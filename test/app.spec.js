@@ -1,3 +1,4 @@
+/*global describe, before, after, it*/
 'use strict';
 
 // core dependencies
@@ -44,7 +45,7 @@ describe.only( 'generator:app', function () {
 
 		//Todo: Not clear how to test non-existance of files.
 		it.skip( 'should not contain .verb specific files', function () {
-			assert.file( ['.verb.md'] ).to.be.false;
+			assert.file( ['.verb.md'] ).to.not.exist;
 		} )
 
 	} );

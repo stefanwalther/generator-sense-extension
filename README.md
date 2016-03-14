@@ -8,10 +8,6 @@ Watch [branch 0.3](https://github.com/stefanwalther/generator-sense-extension/tr
 
 ***
 
-## About
-
-**generator-sense-extension** is a Yo based generator to create a boilerplate for your Qlik Sense Visualization Extension.
-
 ## Contributing
 
 Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/stefanwalther/generator-sense-extension/issues/new).

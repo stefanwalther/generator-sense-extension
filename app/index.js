@@ -102,13 +102,13 @@ module.exports = yeoman.generators.Base.extend( {
 	// ****************************************************************************************
 	_projectDirs: function () {
 		// Build Dir
-		this.mkdir( 'build' );
-		this.mkdir( 'build/dev' );
-		this.mkdir( 'build/release' );
-		this.mkdir( 'src' );
-		this.mkdir( 'src/lib' );
-		this.mkdir( 'src/lib/css' );
-		this.mkdir( 'src/lib/external' );
+		this.mkdirp( 'build' );
+		this.mkdirp( 'build/dev' );
+		this.mkdirp( 'build/release' );
+		this.mkdirp( 'src' );
+		this.mkdirp( 'src/lib' );
+		this.mkdirp( 'src/lib/css' );
+		this.mkdirp( 'src/lib/external' );
 	},
 	_projectRoot: function () {
 

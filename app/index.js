@@ -1,13 +1,16 @@
 'use strict';
 
+// core dependencies
+var fs = require( 'fs' );
+var path = require( 'path' );
+
+// local dependencies
 var yeoman = require( 'yeoman-generator' );
 var chalk = require( 'chalk' );
 var _ = require( 'lodash' );
 var moment = require( 'moment' );
 var utils = require( './utils' );
 var yoPrompts = require( './prompts.js' );
-var fs = require( 'fs' );
-var path = require( 'path' );
 
 module.exports = yeoman.generators.Base.extend( {
 

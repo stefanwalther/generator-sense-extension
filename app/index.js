@@ -12,10 +12,10 @@ var moment = require( 'moment' );
 var utils = require( './utils' );
 var yoPrompts = require( './prompts.js' );
 
-module.exports = yeoman.generators.Base.extend( {
+module.exports = yeoman.Base.extend( {
 
 	constructor: function () {
-		yeoman.generators.Base.apply( this, arguments );
+		yeoman.Base.apply( this, arguments );
 		this.pkg = require( "../package.json" );
 	},
 
@@ -43,18 +43,18 @@ module.exports = yeoman.generators.Base.extend( {
 			this.prompts.extTemplate = props.extTemplate;
 
 			// Advanced, if not used, fallback to default values in prompts definition
-			this.prompts.extLic = props.extLic || _.findWhere( yoPrompts, {name: 'extLic'} ).default;
-			this.prompts.extType = props.extType || _.findWhere( yoPrompts, {name: 'extType'} ).default;
-			this.prompts.useLess = props.useLess || _.findWhere( yoPrompts, {name: 'useLess'} ).default;
-			this.prompts.useVerb = props.useVerb || _.findWhere( yoPrompts, {name: 'useVerb'} ).default;
-			this.prompts.useSenseGo = props.useSenseGo || _.findWhere( yoPrompts, {name: 'useSenseGo'} ).default;
+			this.prompts.extLic = props.extLic || _.find( yoPrompts, {name: 'extLic'} ).default;
+			this.prompts.extType = props.extType || _.find( yoPrompts, {name: 'extType'} ).default;
+			this.prompts.useLess = props.useLess || _.find( yoPrompts, {name: 'useLess'} ).default;
+			this.prompts.useVerb = props.useVerb || _.find( yoPrompts, {name: 'useVerb'} ).default;
+			this.prompts.useSenseGo = props.useSenseGo || _.find( yoPrompts, {name: 'useSenseGo'} ).default;
 
 			var d = new Date();
 			this.prompts.publishingYear = d.getFullYear();
 			this.prompts.creationDate = moment( d ).format( 'YYYY-MM-DD' );
 
 			this.prompts.licenceGenerated = utils.getLicense( this.prompts );
-			this.prompts.installDependencies = props.installDependencies || _.findWhere( yoPrompts, {name: 'installDependencies'} ).default;
+			this.prompts.installDependencies = props.installDependencies || _.find( yoPrompts, {name: 'installDependencies'} ).default;
 
 			done();
 
@@ -105,13 +105,13 @@ module.exports = yeoman.generators.Base.extend( {
 	// ****************************************************************************************
 	_projectDirs: function () {
 		// Build Dir
-		this.mkdirp( 'build' );
-		this.mkdirp( 'build/dev' );
-		this.mkdirp( 'build/release' );
-		this.mkdirp( 'src' );
-		this.mkdirp( 'src/lib' );
-		this.mkdirp( 'src/lib/css' );
-		this.mkdirp( 'src/lib/external' );
+		this.mkdir( 'build' );
+		this.mkdir( 'build/dev' );
+		this.mkdir( 'build/release' );
+		this.mkdir( 'src' );
+		this.mkdir( 'src/lib' );
+		this.mkdir( 'src/lib/css' );
+		this.mkdir( 'src/lib/external' );
 	},
 	_projectRoot: function () {
 

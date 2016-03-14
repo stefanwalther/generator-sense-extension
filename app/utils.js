@@ -1,4 +1,6 @@
 'use strict';
+
+// core dependencies
 var fs = require( 'fs' );
 
 module.exports = {

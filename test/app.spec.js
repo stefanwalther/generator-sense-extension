@@ -1,12 +1,16 @@
 'use strict';
-var fs = require( 'fs' );
-var path = require( 'path' );
-var assert = require( 'yeoman-generator' ).assert;
-var helpers = require( 'yeoman-generator' ).test;
-var mockery = require( 'mockery' );
-var testSetup = require('./testSetup');
 
-describe( 'generator:app', function () {
+// core dependencies
+var fs = require( 'fs' );
+
+// local dependencies
+var path = require( 'path' );
+var assert = require( 'yeoman-assert' );
+var helpers = require( 'yeoman-test' );
+var mockery = require( 'mockery' );
+var testSetup = require( './testSetup' );
+
+describe.only( 'generator:app', function () {
 
 	before( function () {
 		mockery.enable( {warnOnUnregistered: false} );
@@ -34,17 +38,15 @@ describe( 'generator:app', function () {
 			assert.file( testSetup.expected.srcFiles );
 		} );
 
-		it( 'creates all required project dirs', function (  ) {
+		it( 'creates all required project dirs', function () {
 			assert.file( testSetup.expected.projectDirs );
 		} );
 
 		//Todo: Not clear how to test non-existance of files.
-		it.skip('should not contain .verb specific files', function (  ) {
+		it.skip( 'should not contain .verb specific files', function () {
 			assert.file( ['.verb.md'] ).to.be.false;
-		})
+		} )
 
 	} );
-
-
 
 } );

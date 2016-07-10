@@ -126,7 +126,7 @@ module.exports = yeoman.Base.extend( {
 		// Sense-Go
 		if ( this.prompts.useSenseGo ) {
 			this.template( '_common/gulpfile.js', 'gulpfile.js' );
-			this.tempalte( '_common/sense-go.yml', 'sense-go.yml' );
+			this.template( '_common/sense-go.yml', 'sense-go.yml' );
 		}
 
 		this.template( '_common/CHANGELOG.yml', 'CHANGELOG.yml' );
@@ -140,6 +140,7 @@ module.exports = yeoman.Base.extend( {
 	 */
 	_src: function () {
 		this.template( '_common/src/extension.qext', 'src/' + this.prompts.extUniqueName + '.qext' );
+		this.copy( '_common/src/preview.png', 'src/preview.png');
 
 		if ( this.prompts.extTemplate ) {
 			switch ( this.prompts.extTemplate ) {
@@ -161,7 +162,7 @@ module.exports = yeoman.Base.extend( {
 			this.template( '_common/src/lib/css/main-less.css', 'src/lib/css/main.css' );
 			this._src_less();
 		} else {
-			this.template( '_common/src/lib/css/.gitkeep', 'src/lib/css/.gitkeep' );
+			this.template( '_common/src/lib/css/main-css.css', 'src/lib/css/main.css' );
 		}
 
 		// JS - Utils

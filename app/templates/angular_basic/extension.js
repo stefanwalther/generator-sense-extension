@@ -10,6 +10,11 @@ define( [
 		return {
 			definition: props,
 			initialProperties: initProps,
+			support: {
+				export: false,
+				exportData: false,
+				snapshot: false
+			},
 			snapshot: {canTakeSnapshot: true},
 			template: ngTemplate,
 			controller: ['$scope', function ( $scope ) {

@@ -11,7 +11,7 @@ var helpers = require( 'yeoman-test' );
 var mockery = require( 'mockery' );
 var testSetup = require( './testSetup' );
 
-describe.only( 'generator:app', function () {
+describe( 'generator:app', function () {
 
 	before( function () {
 		mockery.enable( {warnOnUnregistered: false} );

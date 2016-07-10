@@ -37,7 +37,7 @@ var prompts = [
 		choices: [
 			{
 				"name": "Visualization Extension: Classic template",
-				"value": "paint_basic"
+				"value": "basic_paint"
 			},
 			{
 				"name": "Visualization Extension: AngularJS based template",

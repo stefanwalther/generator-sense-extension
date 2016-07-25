@@ -33,7 +33,7 @@ var prompts = [
 		type: 'list',
 		name: 'extTemplate',
 		message: 'Choose a template:',
-		store: false,
+		store: true,
 		choices: [
 			{
 				"name": "Visualization Extension: Classic template",
@@ -50,7 +50,7 @@ var prompts = [
 		type: "confirm",
 		name: "isAdvancedMode",
 		message: "Enter advanced mode? (Choose [N]o if you are unsure):",
-		default: false,
+		default: true,
 		store: true
 	},
 	{

@@ -11,12 +11,15 @@ var _ = require( 'lodash' );
 var moment = require( 'moment' );
 var utils = require( './utils' );
 var yoPrompts = require( './prompts.js' );
+var extend = require( 'deep-extend' );
+var mkdirp = require('mkdirp');
 
 module.exports = yeoman.Base.extend( {
 
 	constructor: function () {
 		yeoman.Base.apply( this, arguments );
 		this.pkg = require( "../package.json" );
+		this.mkdir = mkdirp;
 	},
 
 	init: {},
@@ -67,12 +70,10 @@ module.exports = yeoman.Base.extend( {
 		this._projectRoot();
 		this._src();
 		this._opts();
+		this._pkg();
 
 	},
 
-	templates: function () {
-
-	},
 
 	test: function () {
 
@@ -80,7 +81,7 @@ module.exports = yeoman.Base.extend( {
 
 	install: function () {
 		console.log( 'done/install' );
-		//this.installDependencies( {bower: true, npm: true} )
+		this.installDependencies( {bower: true, npm: true} )
 	},
 
 	saveConfig: function () {
@@ -104,7 +105,6 @@ module.exports = yeoman.Base.extend( {
 	// Content generation
 	// ****************************************************************************************
 	_projectDirs: function () {
-		// Build Dir
 		this.mkdir( 'build' );
 		this.mkdir( 'build/dev' );
 		this.mkdir( 'build/release' );
@@ -126,7 +126,7 @@ module.exports = yeoman.Base.extend( {
 		// Sense-Go
 		if ( this.prompts.useSenseGo ) {
 			this.template( '_common/gulpfile.js', 'gulpfile.js' );
-			this.template( '_common/sense-go.yml', 'sense-go.yml' );
+			this.template( '_common/.sense-go.yml', '.sense-go.yml' );
 		}
 
 		this.template( '_common/CHANGELOG.yml', 'CHANGELOG.yml' );
@@ -160,7 +160,7 @@ module.exports = yeoman.Base.extend( {
 		// CSS
 		if ( this.prompts.useLess ) {
 			this.template( '_common/src/lib/css/main-less.css', 'src/lib/css/main.css' );
-			this._src_less();
+			this.__src_less();
 		} else {
 			this.template( '_common/src/lib/css/main-css.css', 'src/lib/css/main.css' );
 		}
@@ -171,7 +171,7 @@ module.exports = yeoman.Base.extend( {
 
 	},
 
-	_src_less: function () {
+	__src_less: function () {
 		if ( this.prompts.useLess ) {
 			this.template( '_common/src/lib/less/main.less', 'src/lib/less/main.less' );
 			this.template( '_common/src/lib/less/variables.less', 'src/lib/less/variables.less' );
@@ -186,6 +186,31 @@ module.exports = yeoman.Base.extend( {
 			this.template( '_common/dotFiles/.verb.md', '.verb.md' );
 			this.template( '_common/README-verb.md', 'README.md' );
 		}
+
+	},
+
+	_pkg: function() {
+		var pkg = this.fs.readJSON( this.destinationPath('./package.json') );
+
+		if (this.prompts.useSenseGo) {
+			extend( pkg, {
+				scripts: {
+					'preinstall': 'npm i -g sense-go'
+				}
+			});
+		}
+
+		// if (this.prompts.useVerb) {
+		// 	extend( pkg, {
+		// 		devDependencies: {
+		// 			'verb': 'latest'
+		// 		}
+		// 	})
+		// }
+
+		this.fs.writeJSON( this.destinationPath('./package.json'), pkg);
+
+
 
 	}
 } );

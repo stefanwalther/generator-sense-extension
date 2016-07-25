@@ -27,6 +27,10 @@ var TestSetup = function () {
 			'src/initialproperties.js'
 		],
 
+		noSrcFiles: [
+			'src/package.json'
+		],
+
 		// Typical project dirs, regardless the type and other configs.
 		projectDirs: [
 			'build',

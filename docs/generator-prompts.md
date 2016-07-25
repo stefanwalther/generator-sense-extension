@@ -18,10 +18,6 @@ Probably (and hopefully) self-explanatory, but here's an overview:
 - Select one of the following templates:
 	- Visualization Extension: Classic template
 	- Visualization Extension: AngularJS based template
-	- Visualization Extension: Classic + D3
-	- Visualization Extension: AngularJS + D3
-	- Mashup: Classic template
-	- Mashup: AngularJS based template
 
 **"Enter advanced mode"** 
 If you enter the advanced mode you can set the following settings  

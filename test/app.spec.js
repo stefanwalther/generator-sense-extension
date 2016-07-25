@@ -3,9 +3,9 @@
 
 // core dependencies
 var fs = require( 'fs' );
+var path = require( 'path' );
 
 // local dependencies
-var path = require( 'path' );
 var assert = require( 'yeoman-assert' );
 var helpers = require( 'yeoman-test' );
 var mockery = require( 'mockery' );
@@ -13,22 +13,28 @@ var testSetup = require( './testSetup' );
 
 describe( 'generator:app', function () {
 
-	before( function () {
-		mockery.enable( {warnOnUnregistered: false} );
+	before( function ( done ) {
+		mockery.enable( {
+			warnOnReplace: false,
+			warnOnUnregistered: false
+		} );
+		done();
 	} );
 
-	after( function () {
+	after( function ( done ) {
 		mockery.disable();
+		done();
 	} );
 
 	describe( 'handles default settings', function () {
-		before( function ( done ) {
-			helpers.run( path.join( __dirname, '../app' ) )
+
+		before( function () {
+			return helpers.run( path.join( __dirname, '../app' ) )
 				.withPrompts( {
 					isAdvanced: false,
 					extName: 'my-extension'
 				} )
-				.on( 'end', done );
+				.toPromise();
 		} );
 
 		it( 'creates root files', function () {
@@ -43,10 +49,13 @@ describe( 'generator:app', function () {
 			assert.file( testSetup.expected.projectDirs );
 		} );
 
-		//Todo: Not clear how to test non-existance of files.
-		it.skip( 'should not contain .verb specific files', function () {
-			assert.file( ['.verb.md'] ).to.not.exist;
-		} )
+		it( 'should not contain .verb specific files', function () {
+			assert.noFile( ['.verb.md'] );
+		} );
+
+		it('shouldn\'t create some files in the src directory', function() {
+			assert.noFile( testSetup.expected.noSrcFiles);
+		});
 
 	} );
 

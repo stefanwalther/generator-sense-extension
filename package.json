@@ -2,40 +2,38 @@
   "name": "generator-sense-extension",
   "version": "0.3.0",
   "description": "Generate a boilerplate for your Qlik Sense Visualization Extensions or Mashup (including validation, testing, documentation, deployment and packaging).",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "keywords": [
+    "boilerplate",
+    "extension",
+    "generator",
+    "qlik",
+    "qlik-sense",
+    "sense",
+    "visualization-extension",
+    "yeoman-generator",
+    "yo"
+  ],
+  "homepage": "https://github.com/stefanwalther/generator-sense-extension#readme",
+  "bugs": {
+    "url": "https://github.com/stefanwalther/generator-sense-extension/issues"
   },
-  "author": "Stefan Walther",
   "license": "MIT",
+  "author": "Stefan Walther",
+  "files": [
+    "app"
+  ],
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stefanwalther/generator-sense-extension.git"
   },
-  "keywords": [
-    "yeoman-generator",
-    "generator",
-    "boilerplate",
-    "yo",
-    "qlik",
-    "sense",
-    "qlik-sense",
-    "extension",
-    "visualization-extension"
-  ],
-  "bugs": {
-    "url": "https://github.com/stefanwalther/generator-sense-extension/issues"
-  },
-  "homepage": "https://github.com/stefanwalther/generator-sense-extension#readme",
-  "files": [
-    "app"
-  ],
-  "engines": {
-    "node": ">=0.10.0"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "async": "^1.4.0",
     "chalk": "^1.0.0",
+    "deep-extend": "^0.4.1",
     "lodash": "^4.6.1",
     "mkdirp": "^0.5.1",
     "moment": "^2.10.3",
@@ -45,7 +43,10 @@
     "mocha": "^2.4.5",
     "mockery": "^1.4.0",
     "should": "*",
-    "yeoman-assert": "^2.1.1",
-    "yeoman-test": "^1.1.0"
+    "yeoman-assert": "^2.2.1",
+    "yeoman-test": "^1.4.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
   }
 }

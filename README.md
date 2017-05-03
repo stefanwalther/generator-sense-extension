@@ -1,5 +1,7 @@
 # generator-sense-extension
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/stefanwalther/generator-sense-extension.svg)](https://greenkeeper.io/)
+
 > Generate a boilerplate for your Qlik Sense Visualization Extensions or Mashup (including validation, testing, documentation, deployment and packaging).
 
 **Nothing to show, yet ... in the works ...**

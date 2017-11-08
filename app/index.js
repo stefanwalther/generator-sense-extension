@@ -27,6 +27,8 @@ module.exports = yeoman.Base.extend( {
 	prompting: function () {
 		var done = this.async();
 
+		var yoPromptsOrig = _.cloneDeep(yoPrompts);
+
 		this.log( chalk.magenta( 'You\'re using sense-extension generator. Have fun!' ) );
 		this.prompt( yoPrompts, function ( props ) {
 
@@ -49,7 +51,7 @@ module.exports = yeoman.Base.extend( {
 			this.prompts.extLic = props.extLic || _.find( yoPrompts, {name: 'extLic'} ).default;
 			this.prompts.extType = props.extType || _.find( yoPrompts, {name: 'extType'} ).default;
 			this.prompts.useLess = props.useLess || _.find( yoPrompts, {name: 'useLess'} ).default;
-			this.prompts.useVerb = props.useVerb || _.find( yoPrompts, {name: 'useVerb'} ).default;
+			this.prompts.useVerb = props.useVerb || _.find( yoPromptsOrig, {name: 'useVerb'} ).default;
 			this.prompts.useSenseGo = props.useSenseGo || _.find( yoPrompts, {name: 'useSenseGo'} ).default;
 
 			var d = new Date();
@@ -182,7 +184,7 @@ module.exports = yeoman.Base.extend( {
 	_opts: function (  ) {
 
 		// Verb
-		if ( this.prompts.useVerb ) {
+		if ( this.prompts.useVerb === true ) {
 			this.template( '_common/dotFiles/.verb.md', '.verb.md' );
 			this.template( '_common/README-verb.md', 'README.md' );
 		}
@@ -195,7 +197,7 @@ module.exports = yeoman.Base.extend( {
 		if (this.prompts.useSenseGo) {
 			extend( pkg, {
 				scripts: {
-					'preinstall': 'npm i -g sense-go'
+					//'preinstall': 'npm i -g sense-go'
 				}
 			});
 		}

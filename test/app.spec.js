@@ -30,6 +30,8 @@ describe( 'generator:app', function () {
 
 		before( function () {
 			return helpers.run( path.join( __dirname, '../app' ) )
+			// Todo: we have a bigger problem with the tests here:
+			// withPromts seems to apply previous selections, so we don't have a deterministic & clean original state of the prompts.
 				.withPrompts( {
 					isAdvanced: false,
 					extName: 'my-extension'
@@ -50,12 +52,12 @@ describe( 'generator:app', function () {
 		} );
 
 		it( 'should not contain .verb specific files', function () {
-			assert.noFile( ['.verb.md'] );
+			assert.noFile( testSetup.expected.verbFiles );
 		} );
 
-		it('shouldn\'t create some files in the src directory', function() {
-			assert.noFile( testSetup.expected.noSrcFiles);
-		});
+		it( 'shouldn\'t create some files in the src directory', function () {
+			assert.noFile( testSetup.expected.noSrcFiles );
+		} );
 
 	} );
 

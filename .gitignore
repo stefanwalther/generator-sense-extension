@@ -1,6 +1,13 @@
-# =========================
 # Project specific
-# =========================
+
+# IDEs
+.vscode
+.idea
+build
+
+# node.js
+node_modules
+=========
 [Rr]esources/
 [Tt]ests/
 web.*.config
